@@ -2,8 +2,9 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("./database/dbConnect");
-const consolesRoutes = require("./routes/consolesRoute");
+const consolesRoutes = require("./routes/consolesRoutes");
 const gamesRoutes = require("./routes/gamesRoute");
+const colaboradorasRoutes = require("./routes/colaboradorasRoutes")
 
 const app = express();
 
@@ -13,5 +14,6 @@ mongoose.connect();
 
 app.use("/gamestore/consoles",consolesRoutes);
 app.use("/gamestore/games",gamesRoutes);
+app.use("/gamestore", colaboradorasRoutes)
 
 module.exports = app;
